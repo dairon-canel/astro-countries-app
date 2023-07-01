@@ -3,7 +3,9 @@ import ThemeSwitcher from './ThemeSwitcher.svelte';
 const { title } = Astro.props;
 ---
 
-<header class="flex justify-between bg-white font-extrabold px-4">
+<header
+  class="flex justify-between text-sm items-center bg-white font-bold px-4 h-20 dark:bg-elements-dark-blue"
+>
   <h1 class="">{title}</h1>
-  <ThemeSwitcher />
+  <ThemeSwitcher client:only />
 </header>
