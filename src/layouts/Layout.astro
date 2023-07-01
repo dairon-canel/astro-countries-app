@@ -24,12 +24,13 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Frontend Mentor | {title}</title>
   </head>
-  <body class="bg-red-600 flex flex-col">
+  <body
+    class="flex flex-col min-h-screen bg-bg-very-light-gray dark:bg-bg-very-dark-blue"
+  >
     <NavBar title={title} />
     <main class="bg-bg-very-light-gray dark:bg-bg-very-dark-blue shadow-inner">
       <slot />
     </main>
-    <footer class="bg-violet-600">footer</footer>
   </body>
 </html>
 

@@ -2,9 +2,37 @@
 import SearchBar from '../components/SearchBar.astro';
 import Layout from '../layouts/Layout.astro';
 import Select from '../components/Select.svelte';
+import Card from '../components/Card.svelte';
 ---
 
 <Layout title="Where in the world?">
   <SearchBar class="mt-6 mb-10 mx-4" />
   <Select className="w-[12.5rem] mx-4" client:only />
+  <Card
+    client:only
+    country="Germany"
+    flagImage="https://flagcdn.com/de.svg"
+    flagAlt="germany flag"
+    population="81,770,900"
+    region="Europe"
+    capital="Berlin"
+  />
+  <Card
+    client:only
+    country="United States of America"
+    flagImage="https://flagcdn.com/us.svg"
+    flagAlt="us flag"
+    population="329,484,123"
+    region="America"
+    capital="Washington, D.C."
+  />
+  <Card
+    client:only
+    country="Brazil"
+    flagImage="https://flagcdn.com/br.svg"
+    flagAlt="brazil flag"
+    population="212,559,409"
+    region="America"
+    capital="Brasília"
+  />
 </Layout>
