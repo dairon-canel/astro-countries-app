@@ -7,7 +7,7 @@
 <div class={className}>
   <select
     id="regions"
-    class="block px-6 h-12 mb-6 w-full text-xs drop-shadow-md bg-white rounded-md font-semibold"
+    class="block px-6 h-12 mb-6 w-full text-xs drop-shadow-md bg-white dark:bg-elements-dark-blue rounded-md font-semibold dark:text-gray-300"
   >
     <option selected>Filter by Region</option>
     <option value="africa">Africa</option>
