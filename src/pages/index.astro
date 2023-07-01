@@ -1,8 +1,10 @@
 ---
 import SearchBar from '../components/SearchBar.astro';
 import Layout from '../layouts/Layout.astro';
+import Select from '../components/Select.svelte';
 ---
 
 <Layout title="Where in the world?">
   <SearchBar class="mt-6 mb-10 mx-4" />
+  <Select className="w-[12.5rem] mx-4" client:only />
 </Layout>
