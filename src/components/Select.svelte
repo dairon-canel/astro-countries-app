@@ -1,17 +1,22 @@
 <script>
+  import { selectedRegion } from '../store';
   export let className;
 
-  const selectElement = document.getElementById('regions');
+  const updateRegion = ({ target }) => {
+    selectedRegion.set(target.value);
+  };
 </script>
 
 <div class={className}>
   <select
     id="regions"
     class="block px-6 h-12 mb-8 w-full text-xs drop-shadow-md bg-white dark:bg-elements-dark-blue rounded-md font-semibold dark:text-gray-300"
+    value="all"
+    on:change={updateRegion}
   >
-    <option selected>Filter by Region</option>
+    <option value="all" selected>Filter by Region</option>
     <option value="africa">Africa</option>
-    <option value="america">America</option>
+    <option value="americas">America</option>
     <option value="asia">Asia</option>
     <option value="europe">Europe</option>
     <option value="oceania">Oceania</option>

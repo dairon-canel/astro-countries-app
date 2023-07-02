@@ -3,39 +3,27 @@ import SearchBar from '../components/SearchBar.astro';
 import Layout from '../layouts/Layout.astro';
 import Select from '../components/Select.svelte';
 import Card from '../components/Card.svelte';
+import type { CardData } from '../pages/api/data.json';
+
+const response = await fetch('http://localhost:3000/api/data.json');
+const data = await response.json();
 ---
 
 <Layout title="Where in the world?">
   <SearchBar class="mt-6 mb-10 mx-4" />
-  <Select className="w-[12.5rem] mx-4" client:only />
-  <Card
-    className="mx-14 mb-10"
-    client:only
-    country="Germany"
-    flagImage="https://flagcdn.com/de.svg"
-    flagAlt="germany flag"
-    population="81,770,900"
-    region="Europe"
-    capital="Berlin"
-  />
-  <Card
-    className="mx-14 mb-10"
-    client:only
-    country="United States of America"
-    flagImage="https://flagcdn.com/us.svg"
-    flagAlt="us flag"
-    population="329,484,123"
-    region="America"
-    capital="Washington, D.C."
-  />
-  <Card
-    className="mx-14 mb-10"
-    client:only
-    country="Brazil"
-    flagImage="https://flagcdn.com/br.svg"
-    flagAlt="brazil flag"
-    population="212,559,409"
-    region="America"
-    capital="Brasília"
-  />
+  <Select className="w-[12.5rem] mx-4" client:visible />
+  {
+    data.map((country: CardData) => (
+      <Card
+        className="mx-14 mb-10"
+        client:visible
+        country={country.name}
+        flagImage={country.flag}
+        flagAlt={`${country.name} Flag`}
+        population={country.population}
+        region={country.region}
+        capital={country.capital}
+      />
+    ))
+  }
 </Layout>
