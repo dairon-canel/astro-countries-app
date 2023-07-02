@@ -9,7 +9,7 @@ module.exports = {
         'text-very-dark-blue': 'hsl(200, 15%, 8%)',
         'input-dark-gray': 'hsl(0, 0%, 52%)',
         'bg-very-light-gray': 'hsl(0, 0%, 98%)',
-        white: 'hsl(0, 0%, 98%)',
+        white: 'hsl(0, 0%, 100%)',
       },
     },
   },

@@ -1,4 +1,5 @@
 <script>
+  export let className = '';
   export let country;
   export let flagImage;
   export let flagAlt;
@@ -7,10 +8,19 @@
   export let capital;
 </script>
 
-<div>
-  <img src={flagImage} alt={flagAlt} />
-  <h2>{country}</h2>
-  <p>Population: <span>{population}</span></p>
-  <p>Region: <span>{region}</span></p>
-  <p>Capital: <span>{capital}</span></p>
+<div
+  class={className +
+    ' bg-white dark:bg-elements-dark-blue drop-shadow-md rounded-md pb-11'}
+>
+  <img class="rounded-t-md" src={flagImage} alt={flagAlt} />
+  <h2 class="dark:text-white mt-[1.4rem] pl-6 text-lg font-bold">{country}</h2>
+  <p class="dark:text-white mt-[0.825rem] pl-6 font-semibold text-[0.915rem]">
+    Population: <span class="font-normal">{population}</span>
+  </p>
+  <p class="dark:text-white mt-[0.12rem] pl-6 font-semibold text-[0.915rem]">
+    Region: <span class="font-normal">{region}</span>
+  </p>
+  <p class="dark:text-white mt-[0.12rem] pl-6 font-semibold text-[0.915rem]">
+    Capital: <span class="font-normal">{capital}</span>
+  </p>
 </div>
