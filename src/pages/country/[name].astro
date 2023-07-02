@@ -1,0 +1,93 @@
+---
+import Link from '../../components/Link.astro';
+import Layout from '../../layouts/Layout.astro';
+import type { CardData } from '../../pages/api/data.json';
+
+export async function getStaticPaths() {
+  const response = await fetch('http://localhost:3000/api/data.json');
+  const data = await response.json();
+
+  const routes = data.map(e => {
+    return { params: { name: e.name } };
+  });
+
+  return routes;
+}
+
+const { name } = Astro.params;
+
+const response = await fetch('http://localhost:3000/api/data.json');
+const data: CardData[] = await response.json();
+const details = data.find(e => e.name === name);
+---
+
+<Layout title={`What about ${name}?`}>
+  <Link class="ml-7 pl-[3.2rem] mt-10 w-[6.5rem]" href="/">
+    <svg
+      class="absolute left-[1.3rem] top-[0.3rem]"
+      xmlns="http://www.w3.org/2000/svg"
+      width="1.5em"
+      height="1.5em"
+      viewBox="0 0 24 24"
+      ><path
+        fill="currentColor"
+        d="M21 11H6.83l3.58-3.59L9 6l-6 6l6 6l1.41-1.41L6.83 13H21v-2z"
+      ></path></svg
+    >Back
+  </Link>
+  <div
+    class="flex flex-col mt-16 mb-14 mx-[1.7rem] min-h-screen dark:text-white"
+  >
+    <img
+      class="h-[14.3rem]"
+      src={details?.flag}
+      alt={`${details?.name} Flag`}
+    />
+    <h1 class="mt-11 text-xl font-bold">{details?.name}</h1>
+    <p class="mt-[1.45rem] font-semibold text-[0.915rem]">
+      Native Name: <span class="font-normal">{details?.nativeName}</span>
+    </p>
+    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
+      Population: <span class="font-normal"
+        >{details?.population.toLocaleString().replaceAll('.', ',')}</span
+      >
+    </p>
+    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
+      Region: <span class="font-normal">{details?.region}</span>
+    </p>
+    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
+      Sub Region: <span class="font-normal">{details?.subRegion}</span>
+    </p>
+    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
+      Capital: <span class="font-normal">{details?.capital}</span>
+    </p>
+    <p class="mt-[2.5rem] font-semibold text-[0.915rem]">
+      Top Level Domain: <span class="font-normal"
+        >{details?.topLevelDomain}</span
+      >
+    </p>
+    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
+      Currencies: <span class="font-normal"
+        >{details?.currencies?.join(', ')}</span
+      >
+    </p>
+    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
+      Languages: <span class="font-normal">{details?.languages.join(', ')}</span
+      >
+    </p>
+
+    <h2 class="mt-[2.35rem] font-semibold">Border Countries:</h2>
+    <div class="flex justify-between">
+      {
+        details?.borderCountries?.map(country => (
+          <Link
+            href={`/country/${country}`}
+            class="mt-4 min-w-[6.1rem] text-center"
+          >
+            {country}
+          </Link>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

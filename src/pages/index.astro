@@ -14,16 +14,18 @@ const data = await response.json();
   <Select className="w-[12.5rem] mx-4" client:visible />
   {
     data.map((country: CardData) => (
-      <Card
-        className="mx-14 mb-10"
-        client:visible
-        country={country.name}
-        flagImage={country.flag}
-        flagAlt={`${country.name} Flag`}
-        population={country.population}
-        region={country.region}
-        capital={country.capital}
-      />
+      <a class="hover:cursor-pointer" href={`/country/${country.name}`}>
+        <Card
+          className="mx-14 mb-10"
+          client:visible
+          country={country.name}
+          flagImage={country.flag}
+          flagAlt={`${country.name} Flag`}
+          population={country.population}
+          region={country.region}
+          capital={country.capital}
+        />
+      </a>
     ))
   }
 </Layout>
