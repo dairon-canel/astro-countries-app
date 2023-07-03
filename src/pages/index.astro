@@ -22,12 +22,14 @@ const data = await response.json();
     />
   </div>
 
-  <div class="lg:grid lg:grid-cols-4 lg:mx-[5rem] lg:gap-5">
+  <div
+    class="mx-14 grid sm:grid-cols-2 sm:gap-10 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:mx-[5rem] xl:gap-[4.5rem] 2xl:grid-cols-5 min-[2000px]:grid-cols-6"
+  >
     {
       data.map((country: CardData) => (
         <a class="hover:cursor-pointer" href={`/country/${country.name}`}>
           <Card
-            className="mx-14 mb-10 lg:mx-0 lg:mb-0"
+            className="mb-10 md:h-[21rem] lg:h-[18rem] xl:h-[21.1rem] lg:mx-0 lg:mb-0"
             client:visible
             country={country.name}
             flagImage={country.flag}

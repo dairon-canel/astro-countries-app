@@ -21,8 +21,12 @@
     class={className +
       ' bg-white dark:bg-elements-dark-blue drop-shadow-md rounded-md pb-11'}
   >
-    <img class="rounded-t-md" src={flagImage} alt={flagAlt} />
-    <h2 class="dark:text-white mt-[1.4rem] pl-6 text-lg font-bold">
+    <img
+      class="rounded-t-md aspect-[16_/_9.7] object-cover drop-shadow-md"
+      src={flagImage}
+      alt={flagAlt}
+    />
+    <h2 class="dark:text-white mt-[1.4rem] pl-6 text-lg font-bold leading-6">
       {country}
     </h2>
     <p class="dark:text-white mt-[0.825rem] pl-6 font-semibold text-[0.915rem]">
