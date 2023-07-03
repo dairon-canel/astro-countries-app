@@ -22,9 +22,12 @@ const details = data.find(e => e.name === name);
 ---
 
 <Layout title={`What about ${name}?`}>
-  <Link class="ml-7 pl-[3.2rem] mt-10 w-[6.5rem]" href="/">
+  <Link
+    class="ml-7 pl-[3.2rem] mt-10 w-[6.5rem] lg:ml-[5rem] lg:w-[8.5rem] lg:pl-[3.7rem] lg:text-lg lg:mt-[4.9rem] lg:h-[2.8rem]"
+    href="/"
+  >
     <svg
-      class="absolute left-[1.3rem] top-[0.3rem]"
+      class="absolute left-[1.3rem] top-[0.3rem] lg:left-[1.7rem] lg:top-[0.5rem]"
       xmlns="http://www.w3.org/2000/svg"
       width="1.5em"
       height="1.5em"
@@ -35,59 +38,63 @@ const details = data.find(e => e.name === name);
       ></path></svg
     >Back
   </Link>
-  <div
-    class="flex flex-col mt-16 mb-14 mx-[1.7rem] min-h-screen dark:text-white"
-  >
+  <div class="place-self-center flex flex-col lg:flex-row lg:gap-[5.9rem]">
     <img
-      class="h-[14.3rem]"
+      class="h-[14.3rem] place-self-center lg:place-self-start mt-16 lg:h-auto lg:w-[35rem] lg:mt-[5rem]"
       src={details?.flag}
       alt={`${details?.name} Flag`}
     />
-    <h1 class="mt-11 text-xl font-bold">{details?.name}</h1>
-    <p class="mt-[1.45rem] font-semibold text-[0.915rem]">
-      Native Name: <span class="font-normal">{details?.nativeName}</span>
-    </p>
-    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
-      Population: <span class="font-normal"
-        >{details?.population.toLocaleString().replaceAll('.', ',')}</span
+    <div
+      class="flex flex-col mb-14 mx-[1.7rem] dark:text-white lg:row-start-2 lg:max-w-[35.6rem]"
+    >
+      <h1 class="mt-11 text-xl font-bold lg:mt-[7.4rem] lg:text-4xl">
+        {details?.name}
+      </h1>
+      <div
+        class="lg:flex lg:mt-[1.6rem] lg:gap-[10.7rem] lg:text-lg [&>div>p]:text-[0.915rem] [&>div>p>span]:font-normal [&>div>p]:font-semibold [&>div>p]:mt-[0.65rem] [&>div>p]:lg:mt-[0.25rem]"
       >
-    </p>
-    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
-      Region: <span class="font-normal">{details?.region}</span>
-    </p>
-    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
-      Sub Region: <span class="font-normal">{details?.subRegion}</span>
-    </p>
-    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
-      Capital: <span class="font-normal">{details?.capital}</span>
-    </p>
-    <p class="mt-[2.5rem] font-semibold text-[0.915rem]">
-      Top Level Domain: <span class="font-normal"
-        >{details?.topLevelDomain}</span
-      >
-    </p>
-    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
-      Currencies: <span class="font-normal"
-        >{details?.currencies?.join(', ')}</span
-      >
-    </p>
-    <p class="mt-[0.65rem] font-semibold text-[0.915rem]">
-      Languages: <span class="font-normal">{details?.languages.join(', ')}</span
-      >
-    </p>
-
-    <h2 class="mt-[2.35rem] font-semibold">Border Countries:</h2>
-    <div class="flex justify-between">
-      {
-        details?.borderCountries?.map(country => (
-          <Link
-            href={`/country/${country}`}
-            class="mt-4 min-w-[6.1rem] text-center"
-          >
-            {country}
-          </Link>
-        ))
-      }
+        <div class="mt-[1.45rem] lg:mt-0">
+          <p>Native Name: <span>{details?.nativeName}</span></p>
+          <p>
+            Population: <span
+              >{details?.population.toLocaleString().replaceAll('.', ',')}</span
+            >
+          </p>
+          <p>Region: <span>{details?.region}</span></p>
+          <p>
+            Sub Region: <span>{details?.subRegion}</span>
+          </p>
+          <p>Capital: <span>{details?.capital}</span></p>
+        </div>
+        <div class="mt-[2.5rem] lg:mt-0">
+          <p>
+            Top Level Domain: <span>{details?.topLevelDomain}</span>
+          </p>
+          <p>
+            Currencies: <span>{details?.currencies?.join(', ')}</span>
+          </p>
+          <p>
+            Languages: <span>{details?.languages.join(', ')}</span>
+          </p>
+        </div>
+      </div>
+      <div class="lg:flex lg:items-start lg:mt-[4.2rem]">
+        <h2 class="mt-[2.35rem] font-semibold lg:w-[10rem] lg:mt-1">
+          Border Countries:
+        </h2>
+        <div class="flex flex-wrap gap-2 lg:w-[25rem]">
+          {
+            details?.borderCountries?.map(country => (
+              <Link
+                href={`/country/${country}`}
+                class="mt-4 min-w-[6.1rem] px-4 text-center lg:mt-0 lg:mb-2"
+              >
+                {country.match(/^([^(]+)/)?.[0] ?? country}
+              </Link>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </div>
 </Layout>

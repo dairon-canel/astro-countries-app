@@ -27,7 +27,7 @@
       alt={flagAlt}
     />
     <h2 class="dark:text-white mt-[1.4rem] pl-6 text-lg font-bold leading-6">
-      {country}
+      {country.match(/^([^(]+)/)?.[0] ?? country}
     </h2>
     <p class="dark:text-white mt-[0.825rem] pl-6 font-semibold text-[0.915rem]">
       Population: <span class="font-normal"
