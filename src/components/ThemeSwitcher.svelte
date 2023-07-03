@@ -13,9 +13,9 @@
   }
 </script>
 
-<div>
+<div class="lg:mr-[4.2rem]">
   <button
-    class="flex justify-between items-center font-semibold text-xs w-[5.2rem]"
+    class="flex justify-between items-center font-semibold text-xs w-[5.2rem] lg:text-base lg:w-[7rem]"
     on:click={handleClick}
   >
     {#if theme === 'light'}

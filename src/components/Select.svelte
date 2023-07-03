@@ -10,7 +10,7 @@
 <div class={className}>
   <select
     id="regions"
-    class="block px-6 h-12 mb-8 w-full text-xs drop-shadow-md bg-white dark:bg-elements-dark-blue rounded-md font-semibold dark:text-gray-300"
+    class="block px-6 h-12 mb-8 w-full text-xs drop-shadow-md bg-white dark:bg-elements-dark-blue rounded-md font-semibold dark:text-gray-300 lg:h-[3.5rem] lg:text-sm"
     value="all"
     on:change={updateRegion}
   >

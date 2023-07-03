@@ -10,22 +10,34 @@ const data = await response.json();
 ---
 
 <Layout title="Where in the world?">
-  <SearchBar class="mt-6 mb-10 mx-4" />
-  <Select className="w-[12.5rem] mx-4" client:visible />
-  {
-    data.map((country: CardData) => (
-      <a class="hover:cursor-pointer" href={`/country/${country.name}`}>
-        <Card
-          className="mx-14 mb-10"
-          client:visible
-          country={country.name}
-          flagImage={country.flag}
-          flagAlt={`${country.name} Flag`}
-          population={country.population}
-          region={country.region}
-          capital={country.capital}
-        />
-      </a>
-    ))
-  }
+  <div
+    class="lg:grid lg:grid-cols-2 lg:items-center lg:mx-[5rem] lg:mt-[2.2rem]"
+  >
+    <SearchBar
+      class="mt-6 mb-10 mx-4 lg:-mt-6 lg:mb-0 lg:mx-0 lg:max-w-[30rem]"
+    />
+    <Select
+      className="w-[12.5rem] mx-4 lg:place-self-end lg:mr-0 lg:mt-3"
+      client:visible
+    />
+  </div>
+
+  <div class="lg:grid lg:grid-cols-4 lg:mx-[5rem] lg:gap-5">
+    {
+      data.map((country: CardData) => (
+        <a class="hover:cursor-pointer" href={`/country/${country.name}`}>
+          <Card
+            className="mx-14 mb-10 lg:mx-0 lg:mb-0"
+            client:visible
+            country={country.name}
+            flagImage={country.flag}
+            flagAlt={`${country.name} Flag`}
+            population={country.population}
+            region={country.region}
+            capital={country.capital}
+          />
+        </a>
+      ))
+    }
+  </div>
 </Layout>
