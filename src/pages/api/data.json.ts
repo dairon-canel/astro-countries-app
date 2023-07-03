@@ -15,17 +15,6 @@ export interface CardData {
   capital?: string;
 }
 
-/* <Card
-        className="mx-14 mb-10"
-        client:visible
-        country={e.name}
-        flagImage={e.flags.svg}
-        flagAlt={`${e.name} Flag`}
-        population={e.population}
-        region={e.region}
-        capital={e.capital}
-      /> */
-
 export const get: APIRoute = async function get({ params, request, props }) {
   const allCardData: CardData[] = data.map(country => {
     return {
@@ -39,7 +28,7 @@ export const get: APIRoute = async function get({ params, request, props }) {
       currencies: country.currencies?.map(currency => currency.name),
       languages: country.languages?.map(language => language.name),
       borderCountries: country.borders?.map(
-        border => data.find(e => e.alpha3Code === border)?.name,
+        border => data.find(e => e.alpha3Code === border)?.name || border,
       ),
       capital: country.capital,
     };

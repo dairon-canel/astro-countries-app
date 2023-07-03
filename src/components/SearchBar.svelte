@@ -1,5 +1,6 @@
 <script>
   export let className;
+  export let search;
 </script>
 
 <div
@@ -21,5 +22,6 @@
     class="rounded-md w-full pl-[4.6rem] text-xs text-input-dark-gray placeholder:text-gray-300 dark:text-white dark:placeholder:text-gray-300 dark:bg-elements-dark-blue"
     type="text"
     placeholder="Search for a country..."
+    on:keyup={e => search(e.target.value)}
   />
 </div>
