@@ -10,7 +10,7 @@
 
 <div
   class={className +
-    ' bg-white dark:bg-elements-dark-blue drop-shadow-md rounded-md pb-11'}
+    ' bg-white dark:bg-elements-dark-blue text-text-very-dark-blue drop-shadow-md rounded-md pb-11'}
 >
   <img
     class="rounded-t-md aspect-[16_/_9.7] object-cover drop-shadow-md"
