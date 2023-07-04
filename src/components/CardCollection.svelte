@@ -63,7 +63,10 @@
   class="mx-14 grid grid-cols-[repeat(auto-fit,_minmax(min(200px,_100%),_1fr))] gap-10 md:gap-6 lg:mx-[5rem] xl:gap-[4.5rem]"
 >
   {#each filteredCountries as country (country.name)}
-    <a class="hover:cursor-pointer" href={`/country/${country.name}`}>
+    <a
+      class="hover:cursor-pointer border border-transparent transition-colors hover:border-bg-very-dark-blue hover:shadow-inner rounded-md hover:border"
+      href={`/country/${country.name}`}
+    >
       <Card
         className="mb-10 md:h-[21rem] lg:h-[18rem] xl:h-[21.1rem] lg:mx-0 lg:mb-0 2xl:md:h-[19rem]"
         country={country.name}
