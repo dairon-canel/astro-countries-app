@@ -60,7 +60,7 @@
 </div>
 
 <div
-  class="mx-14 grid sm:grid-cols-2 sm:gap-10 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:mx-[5rem] xl:gap-[4.5rem] 2xl:grid-cols-5 min-[2000px]:grid-cols-6"
+  class="mx-14 grid grid-cols-[repeat(auto-fit,_minmax(min(200px,_100%),_1fr))] gap-10 md:gap-6 lg:mx-[5rem] xl:gap-[4.5rem]"
 >
   {#each filteredCountries as country (country.name)}
     <a class="hover:cursor-pointer" href={`/country/${country.name}`}>
