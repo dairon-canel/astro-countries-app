@@ -15,7 +15,7 @@
   }
 </script>
 
-<div class="lg:mr-[4.2rem]">
+<div class="-mr-4 lg:mr-[4.2rem]">
   <button
     class="relative [&>div]:absolute [&>div]:flex [&>div]:justify-between [&>div]:w-[5.6rem] [&>div]:-mt-4 [&>div]:items-center font-semibold text-xs w-[7rem] lg:text-base [&>div]:lg:w-[7rem]"
     on:click={handleClick}
