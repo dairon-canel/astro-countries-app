@@ -82,8 +82,11 @@
   {/each}
 </div>
 {#if filters.page < lastPage}
-  <div class="w-10 h-10 bg-red-700">
-    <button on:click={loadMore}>Load More</button>
+  <div class="my-10 w-full grid">
+    <button
+      class="dark:bg-elements-dark-blue drop-shadow-lg w-32 h-10 rounded-md hover:bg-bg-very-dark-blue hover:text-white dark:hover:text-bg-very-dark-blue dark:hover:bg-white bg-white text-bg-very-dark-blue dark:text-white place-self-center"
+      on:click={loadMore}>Load More</button
+    >
   </div>
 {/if}
 
