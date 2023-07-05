@@ -62,11 +62,14 @@
 </div>
 
 <div
-  class="mt-[2.9rem] lg:mt-[3.4rem] mx-14 grid grid-cols-[repeat(auto-fit,_minmax(min(200px,_100%),_1fr))] gap-10 md:gap-6 lg:mx-[5rem] xl:gap-[4.7rem]"
+  class="mt-[2.9rem] lg:mt-[3.4rem] mx-14 grid gap-10 md:gap-6 lg:mx-[5rem] xl:gap-[4.7rem]"
+  class:grid-cols-[repeat(auto-fit,_minmax(min(198px,_50%),_1fr))]={filteredCountries.length >=
+    4}
 >
   {#each filteredCountries as country (country.name)}
     <a
       class="hover:cursor-pointer border border-transparent transition-colors hover:border-bg-very-dark-blue hover:shadow-inner rounded-md hover:border"
+      class:max-w-[16.5rem]={filteredCountries.length < 4}
       href={`/country/${country.name}`}
     >
       <Card
