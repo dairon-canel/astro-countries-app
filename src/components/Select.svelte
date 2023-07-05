@@ -7,10 +7,10 @@
   <select
     id="regions"
     class="block px-6 h-12 mb-8 w-full text-xs drop-shadow-md bg-white dark:bg-elements-dark-blue rounded-md font-semibold dark:text-gray-300 lg:h-[3.5rem] lg:text-sm"
-    value="all"
+    value=""
     on:change={e => search(e.target.value)}
   >
-    <option value="all" selected>Filter by Region</option>
+    <option value="" selected>Filter by Region</option>
     <option value="africa">Africa</option>
     <option value="americas">America</option>
     <option value="asia">Asia</option>
