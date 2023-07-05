@@ -4,6 +4,8 @@
   import { onMount } from 'svelte';
   import Select from './Select.svelte';
 
+  export let protocol, hostname, port;
+
   let allCountries,
     filteredCountries = [];
   let filters = {
@@ -15,7 +17,9 @@
   const perPage = 10;
 
   onMount(async () => {
-    const response = await fetch('http://localhost:3000/api/data.json');
+    const response = await fetch(
+      `${protocol}//${hostname}:${port}/api/data.json`,
+    );
     const data = await response.json();
     allCountries = data;
     filteredCountries = data.slice(0, filters.page * perPage);

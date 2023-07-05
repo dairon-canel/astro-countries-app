@@ -1,8 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CardCollection from '../components/CardCollection.svelte';
+
+const { protocol, hostname, port } = Astro.url;
 ---
 
 <Layout title="Where in the world?">
-  <CardCollection client:load />
+  <CardCollection {protocol} {hostname} {port} client:load />
 </Layout>
