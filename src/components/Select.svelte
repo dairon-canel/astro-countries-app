@@ -6,6 +6,7 @@
 <div class={className}>
   <select
     id="regions"
+    name="regions"
     class="block px-6 h-12 mb-8 w-full text-xs drop-shadow-md bg-white dark:bg-elements-dark-blue rounded-md font-semibold dark:text-gray-300 lg:h-[3.5rem] lg:text-sm"
     value=""
     on:change={e => search(e.target.value)}
