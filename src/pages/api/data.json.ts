@@ -3,6 +3,7 @@ import data from './_data.json';
 
 export interface CardData {
   name: string;
+  alpha3Code: string;
   flag: string;
   population: number;
   region: string;
@@ -19,6 +20,7 @@ export const get: APIRoute = async function get({ params, request, props }) {
   const allCardData: CardData[] = data.map(country => {
     return {
       name: country.name,
+      alpha3Code: country.alpha3Code,
       flag: country.flags.svg,
       population: country.population,
       region: country.region,

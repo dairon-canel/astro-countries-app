@@ -80,6 +80,7 @@
         className="mb-10 md:h-[21rem] lg:h-[18rem] xl:h-[21.1rem] lg:mx-0 lg:mb-0 2xl:md:h-[19rem]"
         country={country.name}
         flagImage={country.flag}
+        imgId={country.alpha3Code}
         flagAlt={`${country.name} Flag`}
         population={country.population}
         region={country.region}

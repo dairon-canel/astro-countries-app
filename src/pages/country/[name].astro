@@ -47,6 +47,7 @@ const details = data.find(e => e.name === name);
       class="h-[14.3rem] place-self-center lg:place-self-start mt-16 lg:h-auto drop-shadow-lg lg:w-[35rem] lg:mt-[5rem]"
       src={details?.flag}
       alt={`${details?.name} Flag`}
+      style={`view-transition-name: id-${details?.alpha3Code}`}
     />
     <div
       class="flex flex-col mb-14 mx-[1.7rem] dark:text-white lg:row-start-2 lg:max-w-[35.6rem]"

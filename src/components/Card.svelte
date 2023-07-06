@@ -1,6 +1,7 @@
 <script>
   export let className = '';
   export let country;
+  export let imgId;
   export let flagImage;
   export let flagAlt;
   export let population;
@@ -16,6 +17,7 @@
     class="rounded-t-md aspect-[16_/_9.7] object-cover drop-shadow-md"
     src={flagImage}
     alt={flagAlt}
+    style={`view-transition-name: id-${imgId}`}
   />
   <h2 class="dark:text-white mt-[1.4rem] pl-6 text-lg font-bold leading-6">
     {country.match(/^([^(]+)/)?.[0] ?? country}
