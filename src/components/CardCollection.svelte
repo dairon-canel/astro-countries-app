@@ -74,7 +74,7 @@
     <a
       class="hover:cursor-pointer border border-transparent transition-colors hover:border-bg-very-dark-blue hover:shadow-inner rounded-md hover:border"
       class:max-w-[16.5rem]={filteredCountries.length < 4}
-      href={`/country/${country.name}`}
+      href={`/country/${country.name.replaceAll(' ', '-')}`}
     >
       <Card
         className="mb-10 md:h-[21rem] lg:h-[18rem] xl:h-[21.1rem] lg:mx-0 lg:mb-0 2xl:md:h-[19rem]"

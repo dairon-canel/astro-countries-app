@@ -12,7 +12,7 @@ export async function getStaticPaths() {
   const data = await response.json();
 
   const routes = data.map((e: CardData) => {
-    return { params: { name: e.name } };
+    return { params: { name: e.name.replaceAll(' ', '-') } };
   });
 
   return routes;
@@ -22,10 +22,10 @@ const { name } = Astro.params;
 
 const response = await fetch(`${protocol}//${hostname}:${port}/api/data.json`);
 const data: CardData[] = await response.json();
-const details = data.find(e => e.name === name);
+const details = data.find(e => e.name.replaceAll(' ', '-') === name);
 ---
 
-<Layout title={`What about ${name}?`}>
+<Layout title={`What about ${name?.replaceAll('-', ' ')}?`}>
   <Link
     class="ml-7 pl-[3.2rem] mt-10 w-[6.5rem] lg:ml-[5rem] lg:w-[8.5rem] lg:pl-[3.7rem] lg:text-lg lg:mt-[4.9rem] lg:h-[2.8rem]"
     href="/"
@@ -92,7 +92,7 @@ const details = data.find(e => e.name === name);
             <div class="flex flex-wrap gap-2 lg:w-[25rem]">
               {details?.borderCountries?.map(country => (
                 <Link
-                  href={`/country/${country}`}
+                  href={`/country/${country.replaceAll(' ', '-')}`}
                   class="mt-4 min-w-[6.1rem] px-4 text-center lg:mt-0 lg:mb-2"
                 >
                   {country.match(/^([^(]+)/)?.[0] ?? country}
